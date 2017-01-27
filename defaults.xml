@@ -1,0 +1,40 @@
+<presetValues>
+    <table name="contacts">
+        <entry>
+            <id type="INT">0</id>
+            <name type="TEXT">John</name>
+            <address type="TEXT">Nantes</address>
+            <description type="TEXT">Best Friend Forever</description>
+            <country type="INT">0</country>
+            <phone type="TEXT">0101101</phone>
+        </entry>
+        <entry>
+            <id type="INT">1</id>
+            <name type="TEXT">Benedict</name>
+            <address type="TEXT">Paris</address>
+            <description type="TEXT">Guy from local bar with red beard.</description>
+            <country type="INT">0</country>
+            <phone type="TEXT">1010010</phone>
+        </entry>
+        <entry>
+            <id type="INT">2</id>
+            <name type="TEXT">Kesha</name>
+            <address type="TEXT">Dnipro</address>
+            <description type="TEXT">Russian hacker.</description>
+            <country type="INT">1</country>
+            <phone type="TEXT">8900980</phone>
+        </entry>
+    </table>
+    <table name="countries">
+        <entry>
+            <id type="INT">0</id>
+            <name type="TEXT">France</name>
+            <country_phone_code type="TEXT">+33</country_phone_code>
+        </entry>
+        <entry>
+            <id type="INT">1</id>
+            <name type="TEXT">Ukraine</name>
+            <country_phone_code type="TEXT">+380</country_phone_code>
+        </entry>
+    </table>
+</presetValues>

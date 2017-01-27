@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<database file="contacts.db" name="My contacts" style="style.css">
+    <table name="contacts" default="file" file="defaults.xml">
+        <field name="id" type="pk"/>
+        <field name="name" type="line"/>
+        <field name="address" type="line"/>
+        <field name="description" type="text"/>
+        <field name="country" type="fk" fk="countries"/>
+        <field name="phone" type="line"/>
+        <view name="advanced">
+            <name/>
+            <address/>
+            <country.name/>
+            <country.country_phone_code>Country code</country.country_phone_code>
+            <phone/>
+        </view>
+    </table>
+    <table name="countries" default="file" file="defaults.xml">
+        <field name="id" type="pk"/>
+        <field name="name" type="line"/>
+        <field name="country_phone_code" type="line"/>
+    </table>
+</database>

@@ -54,6 +54,12 @@ class MainWindow(QtGui.QMainWindow):
         self.lblCurrentModule.setText(_('currentModuleFile:') + ' ' + g.module_path)
         self.toolbarModule.addWidget(self.lblCurrentModule)
 
+        # change stylesheet
+        self.btnStyle = QtGui.QPushButton()
+        self.btnStyle.setText(_('changeStyle'))
+        self.btnStyle.clicked.connect(self.style_clicked)
+        self.toolbarModule.addWidget(self.btnStyle)
+
         # quit
         self.toolbarModule.addSeparator()
         self.btnKill = QtGui.QPushButton()
@@ -282,6 +288,18 @@ class MainWindow(QtGui.QMainWindow):
                 error = QtGui.QMessageBox(2, _('error'), _('badXml'))
                 error.setStyleSheet(g.css)
                 error.exec()
+
+    def style_clicked(self):
+        open_dlg = QtGui.QFileDialog(caption='Set Cascading Style Sheet File')
+        open_dlg.setStyleSheet(g.css)
+        open_dlg.setAcceptMode(QtGui.QFileDialog.AcceptOpen)
+        open_dlg.setFileMode(QtGui.QFileDialog.ExistingFile)
+        open_dlg.setFilter("*.css")
+        if open_dlg.exec():
+            file = open_dlg.selectedFiles()
+            g.change_style(file[0])
+            self.setStyleSheet(g.css)
+            self.dbView.horizontalHeader().setStyleSheet(g.css)
 
     def on_view_change(self, view_index):
         if view_index == -1:

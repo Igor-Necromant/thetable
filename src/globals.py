@@ -60,10 +60,22 @@ class Globals:
         with open(self.config_path, 'w') as configfile:
             self.config.write(configfile)
         self.root = Et.parse(self.module_path).getroot()
+        self.change_style()
+
+    def change_style(self, style_path=-1):
+        if style_path == -1:
+            style_path = self.root.get('style')
         try:
-            self.css = open(str(self.root.get('style')), 'r').read()
+            self.css = open(str(style_path), 'r').read()
         except FileNotFoundError:
             self.css = ''
+
+    @staticmethod
+    def write_xml(root, filename):
+        Et.ElementTree(root).write(filename)
+        # adding whitespaces for readability
+        text = open(filename, 'r').read()
+        open(filename, 'w').write(Globals.add_whitespace(text))
 
     @staticmethod
     def add_whitespace(text):

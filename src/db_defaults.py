@@ -29,11 +29,7 @@ def to_preset(tables, values):
                     node = Et.SubElement(entry, el.attrib['name'])
                     node.set('type', Globals.field_type[el.attrib['type']])
                     node.text = str(record[el.attrib['name']])
-    tree = Et.ElementTree(root)
-    tree.write(filename)
-    # adding whitespaces for readability
-    text = open(filename, 'r').read()
-    open(filename, 'w').write(Globals.add_whitespace(text))
+    Globals.write_xml(root, filename)
 
 
 def create():
